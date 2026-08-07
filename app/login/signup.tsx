@@ -18,12 +18,12 @@ export function Signup(
                         </div>
 
                         <div>
-                            <form action="" >
+                            <form action="Post" >
                                 <p className="text-black font-bold pb-2 text-sm">Work email or Employee ID</p>
                                 <input type="text" placeholder="Enter your work email or Id" className="border border-gray-500 h-10 w-90 rounded-lg text-black placeholder:text-gray-500 pl-2 mb-3 placeholder:text-[16px] "  />
 
                                  <p className="text-black font-bold pb-2 text-sm">Password</p>
-                                <input type="text" placeholder="Enter your password" className="border border-gray-500 h-10 w-90 rounded-lg text-black placeholder:text-gray-500 pl-2 mb-3 placeholder:text-[16px]"  />
+                                <input type="password" placeholder="Enter your password"  className="border border-gray-500 h-10 w-90 rounded-lg text-black placeholder:text-gray-500 pl-2 mb-3 placeholder:text-[16px]"  />
 
                                 
 

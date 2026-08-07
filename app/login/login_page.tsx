@@ -1,9 +1,10 @@
 "use client"
 
 import { useState } from "react";
-import Image from "next/image";
+
 import {Nav} from "@/components/ui/navbar"
 
+import { useRouter } from "next/navigation";
 
 
 
@@ -19,26 +20,26 @@ import {Nav} from "@/components/ui/navbar"
     export function Left(){
         return(
             <>
-                <div className="w-200 h-164 bg-indigo-300 flex justify-center items-center">
-                    <div className="h-134 w-160 mt-5 pt-10 pl-10 pr-8">
+                <div className="w-full lg:w-1/2   bg-indigo-300 flex justify-center items-center px-6 py-2 pt-0">
+                    <div className="w-full max-w-2xl px-2 mt-0 pt-0 pl-10 pr-8">
                         <p className=" pb-3 font-mono text-slate-900 font-semibold">Single source of truth</p>
-                        <h1 className=" pb-5 text-5xl font-sans font-bold text-black pr-20">Manage learning and knowledge in one place.</h1>
-                        <p className="text-[18px] font-Roboto  text-slate-900 pb-5">A centralized hub for employee onboarding, continuous learning, assessments, skills and reusable organizational knowledge.</p>
-                        <div className="grid grid-cols-2 h-40 justify-between text-white">
-                            <div className="bg-white w-54 h-13 border border-black pl-4 pt-2 flex">
+                        <h1 className=" pb-5 text-3xl md:text-4xl lg:text-5xl font-sans font-bold text-black max-w-xl">Manage learning and knowledge in one place.</h1>
+                        <p className="text-base md:text-lg font-Roboto  text-slate-900 pb-5">A centralized hub for employee onboarding, continuous learning, assessments, skills and reusable organizational knowledge.</p>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 h-40 justify-between text-white">
+                            <div className="bg-white w-full h-13 border border-black pl-4 pt-2 flex">
                                 <div className="h-8 w-8 border  border-black"></div>
                                 <span className="text-black pt-1 pl-2 font-sans font-bold ">Onboarding</span>
                             </div>
-                            <div className="bg-white w-54 h-13 border border-black pl-4 pt-2 flex">
+                            <div className="bg-white w-full h-13 border border-black pl-4 pt-2 flex">
                                 <div className="h-8 w-8 border  border-black"></div>
                                 <span className="text-black pt-1 pl-2 font-sans font-bold">Learning</span>
                             </div>
-                            <div className="bg-white w-54 h-13 border border-black pl-4 pt-2 flex">
+                            <div className="bg-white w-full h-13 border border-black pl-4 pt-2 flex">
                                 <div className="h-8 w-8 border  border-black"></div>
                                 <span className="text-black pt-1 pl-2 font-sans font-bold">Assessments</span>
                                 
                             </div>
-                            <div className="bg-white w-54 h-13 border border-black pl-4 pt-2 flex">
+                            <div className="bg-white w-full h-13 border border-black pl-4 pt-2 flex">
                                 <div className="h-8 w-8 border  border-black"></div>
                                 <span className="text-black pt-1 pl-2 font-sans font-bold">Knowledge Center</span>
                             </div>
@@ -52,17 +53,39 @@ import {Nav} from "@/components/ui/navbar"
         );
     }
 
-    export function Login({
-  goSignup,
-}: {
-  goSignup: () => void;
-}) {
+export function Login({ goSignup }: { goSignup: () => void }) {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const router = useRouter();
+
+  async function handleSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    setError("");
+
+    const res = await fetch("http://localhost:3001/login", {
+      method: "POST",
+      credentials: "include",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email, password }),
+    });
+
+    const data = await res.json();
+    if (!res.ok) {
+      setError(data.error);
+      return;
+    }
+
+    // redirect here, e.g. router.push("/dashboard")
+     router.push("/dashboard");
+  }
+ 
          
         return(
              
             <>
-                <div className="w-200 h-164 bg-white flex justify-center items-center">
-                    <div className="login h-130 w-110 border border-black rounded-xl p-10 shadow-sm shadow-gray-800">
+                <div className="w-full lg:w-1/2  px-5 py-1  bg-white flex justify-center items-center">
+                    <div className="login h-auto w-full max-w-md border border-black rounded-xl p-10 shadow-sm shadow-gray-800">
                         <div className="admin h-8 w-28 border-yellow-700 border rounded-3xl  bg-yellow-200 text-yellow-800 text-[12px] font-bold p-2 font-sans mb-5">
                             ADMIN ACCESS
                         </div>
@@ -72,23 +95,25 @@ import {Nav} from "@/components/ui/navbar"
                         </div>
 
                         <div>
-                            <form action="" >
+                          <form onSubmit={handleSubmit}>
                                 <p className="text-black font-bold pb-2 text-sm">Work email or Employee ID</p>
-                                <input type="text" placeholder="Enter your work email or Id" className="border border-gray-500 h-10 w-90 rounded-lg text-black placeholder:text-gray-500 pl-2 mb-3 placeholder:text-[16px] "  />
+                                <input type="text" placeholder="Enter your work email or Id" value={email} onChange={(e)=>setEmail(e.target.value)} className="border border-gray-500 h-10 w-90 rounded-lg text-black placeholder:text-gray-500 pl-2 mb-3 placeholder:text-[16px] "  />
 
                                  <p className="text-black font-bold pb-2 text-sm">Password</p>
-                                <input type="text" placeholder="Enter your password" className="border border-gray-500 h-10 w-90 rounded-lg text-black placeholder:text-gray-500 pl-2 mb-3 placeholder:text-[16px]"  />
+                                <input type="password" placeholder="Enter your password" value={password} onChange={(e)=>setPassword(e.target.value)} className="border border-gray-500 h-10 w-90 rounded-lg text-black placeholder:text-gray-500 pl-2 mb-3 placeholder:text-[16px]"  />
 
-                                <div className="flex w-90">
-                                    <input type="checkbox" name="Remember me" id="" /><p className="text-gray-800 text-[13px] pl-2 ">Remember me</p>
+                                <div className="flex justify-between items-center w-full">
+                                    <input type="checkbox" name="Remember me" id="" /><p className="text-gray-800 text-[13px] pl-0 pr-15 ">Remember me</p>
 
-                                    <a href="" className="ml-30 text-black text-[12px] font-bold pt-1  hover:underline underline-offset-1">Forget Password?</a>
+                                    <a href="" className="flex justify-between items-center text-black text-[12px] font-bold pt-1  hover:underline underline-offset-1">Forget Password?</a>
                                 </div>
 
-                                <button type="submit" className="mt-5 mb-5 border border-black w-90 h-12 rounded-lg bg-indigo-900 font-bold text-white">Sign in</button>
+                                {error && <p className="text-red-500 text-sm mb-2">{error}</p>}
+
+                                <button type="submit" className="mt-5 mb-5 border border-black w-full h-12 rounded-lg bg-indigo-900 font-bold text-white">Sign in</button>
                             </form>
 
-                            <div className="w-90 border-b border-gray-400 mb-5"></div>
+                            <div className="w-full border-b border-gray-400 mb-5"></div>
 
                             <span className="text-slate-900 text-[15px] pl-3 font-sans font-semibold">Don't have an account ? <a  onClick={goSignup}  className="text-indigo-800 cursor-pointer">Sign up</a></span>
 

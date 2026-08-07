@@ -16,7 +16,7 @@ export default function Page1() {
     <>
       <Navbar />
 
-      <div className="flex">
+      <div className="flex flex-col lg:flex-row min-h-[calc(100vh-80px)]">
         <Left />
          {isSignup ? (
         <Signup goLogin={() => setIsSignup(false)} />

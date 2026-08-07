@@ -4,7 +4,7 @@ function Admin({})
     {
     return(
         <>
-        <div className="flex justify-between ">
+        <div className="flex justify-between  ">
              <div className="head flex  h-15 flex-row pl-1 gap-2   w-61 ">
                 <span className="h-10 w-10 border border-gray-600 rounded-3xl text-slate-900 pt-3 text-[11px] text-center font-bold " >AD</span>
                 <div>

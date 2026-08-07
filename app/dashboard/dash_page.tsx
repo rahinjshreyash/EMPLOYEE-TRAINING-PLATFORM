@@ -5,8 +5,8 @@ import {Admin} from "@/components/ui/admin"
 export function Side(){
     return(
         <>
-            <div className="sidebar min-h-100 max-h-181 w-55 bg-indigo-50 overflow-y-scroll overflow-x-hidden fixed">
-                <div className="head flex  h-20 flex-row pl-5 pt-5 gap-2 border-b border-b-indigo-200 w-61">
+            <div className="sidebar min-h-screen h-auto lg:max-h-181 lg:w-55 hidden lg:block bg-indigo-50 overflow-y-scroll lg:overflow-x-hidden  fixed">
+            <div className="head flex  h-20 flex-row pl-5 pt-5 gap-2 border-b border-b-indigo-200 lg:w-40">
                     <img src="s" alt="" className="h-10 w-10 border border-white rounded-md" />
                     <div>
                         <div className="text-[14px] text-slate-900 font-sans font-bold m-0 p-0">Employee Learning</div>
@@ -175,13 +175,14 @@ export function Side(){
 export  function Nav(){
         return(
              <>
-                  <div className="Nav h-20 w-330 bg-white pt-5 pb-3 pl-12 pr-15 flex justify-between ">
+                  <div className="Nav h-20 w-full lg:w-330 bg-white pt-5 pb-3 pl-12 pr-1 flex justify-between ml-0 lg:ml-55 ">
                   
-                    <div className="flex justify-between  w-100 h-15 mr-4">
+                    <div className="lg:flex lg:justify-between lg:w-100 h-15 mr-4 w-0">
                       
-                      <div className=" w-253 h-10 border border-amber-950 bg-gray-50 flex">
+                      <div className=" w-253 h-10 border border-amber-950 bg-gray-50 hidden lg:block lg:flex">
                         
-                        <input type="text"  placeholder="Search FAQs, documents, test cases, courses and SOPs" className=" w-160 text-[13px] placeholder:p-3 placeholder:text-black  text-black pl-2" />
+                        <input type="text"  placeholder="Search FAQs, documents, test cases, courses and SOPs" className="w-full
+max-w-xltext-[13px] placeholder:p-2 placeholder:text-slate-500 text-black pl-2   lg:block" />
                         
                       </div>
             
@@ -208,10 +209,10 @@ export  function Nav(){
     export function Right(){
         return(
             <>
-               <div className="w-330 h-194 bg-indigo-100 flex overflow-x-hidden ">
-                    <div className="h-134 w-160 mt-5  pl-10 pr-8">
+               <div className="w-330 min-h-screen h-auto  bg-indigo-100 flex overflow-x-hidden ml-0 lg:ml-55 ">
+                    <div className="min-h-screen h-auto w-full mt-5 px-4 md:px-8 lg:px-10 ">
                         <p className=" pb-3 font-mono text-slate-900 font-semibold text-sm">ADMIN / DASHBOARD</p>
-                        <h1 className=" pb-2 text-4xl font-sans font-bold text-slate-900  flex">Admin Dashboard
+                        <h1 className=" pb-2 text-2xl md:text-3xl lg:text-4xl font-sans font-bold text-slate-900  flex">Admin Dashboard
 
                             <p className="text-[10px] h-7 w-30 font-mono ml-5 mt-2 border border-dashed pt-2 pl-2 bg-indigo-200 text-indigo-700">Illustrative Data</p>
                         </h1>
@@ -219,7 +220,7 @@ export  function Nav(){
                         <div className="flex justify-between w-300">
                             <p className="text-[16px] font-Roboto  text-slate-900 pb-10">Manage employee learning, knowledge contributions, skills and access.</p>
 
-                            <div className="flex gap-4">
+                            <div className="flex gap-4 flex-col md:flex-row">
                                 <button className="text-[14px] text-slate-900 bg-white h-10 w-25 border border-slate-900 rounded-sm cursor-pointer ">Export
                                 </button>
 
@@ -230,10 +231,10 @@ export  function Nav(){
                         </div>
 
                         
-                        <div className="grid grid-cols-4 h-40 justify-between w-300 text-white ">
-                            <div className="bg-white w-70 h-45 border border-gray-400 pl-4 pt-2  rounded-md">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 h-auto justify-between w-full max-w-7xl:w-full mx-auto px-4 text-white lg:h-auto">
+                            <div className="bg-white w-70 h-45 border border-gray-400 pl-4 pt-2 rounded-md">
                                 <div className="flex w-60 p-1 h-10 justify-between">
-                                    <span className="bg-slate-300 rounded-md h-8 w-10 text-slate-900 pl-2 pt-1">TP</span>
+                                    <span className="bg-slate-300 rounded-md  w-8 h-8 md:w-10 md:h-10 text-slate-900 pl-2 pt-1">TP</span>
                                     <svg
                                         xmlns="http://www.w3.org/2000/svg"
                                         width="24"
@@ -253,7 +254,7 @@ export  function Nav(){
                                 </div>
 
                                 <div className="text-slate-700 pt-2 font-sans font-semibold">Team Progress</div>
-                                <h1 className="text-black text-4xl font-semibold">72%</h1>
+                                <h1 className="text-black text-2xl md:text-3xl lg:text-4xl font-semibold">72%</h1>
 
                                 <span className="text-slate-500 text-[11px] pt-2">18 of 25 roadmaps on track</span>
 
@@ -280,7 +281,7 @@ export  function Nav(){
                                 </div>
 
                                 <div className="text-slate-700 pt-2 font-sans font-semibold">Pending Approvals</div>
-                                <h1 className="text-black text-4xl font-semibold">08</h1>
+                                <h1 className="text-black text-2xl md:text-3xl lg:text-4xl font-semibold">08</h1>
                                 <span className="text-slate-500 text-[11px] pt-2">Knowledge contributions</span>
 
                             </div>
@@ -306,7 +307,7 @@ export  function Nav(){
                                 </div>
 
                                 <div className="text-slate-700 pt-2 font-sans font-semibold">Learning Completion</div>
-                                <h1 className="text-black text-4xl font-semibold">68%</h1>
+                                <h1 className="text-black text-2xl md:text-3xl lg:text-4xl font-semibold">68%</h1>
                                 <span className="text-slate-500 text-[11px] pt-2">Across assigned learning</span>
 
                             </div>
@@ -332,7 +333,7 @@ export  function Nav(){
                                 </div>
                                 <div className="text-slate-700 pt-2 font-sans font-semibold">Identified Skill Gaps</div>
 
-                                <h1 className="text-black text-4xl font-semibold">14</h1>
+                                <h1 className="text-black text-2xl md:text-3xl lg:text-4xl font-semibold">14</h1>
                                 <span className="text-slate-500 text-[11px] pt-2">Across active employees</span>
 
 
@@ -340,8 +341,8 @@ export  function Nav(){
                             </div>
 
                         </div>
-                        <div className="flex justify-between w-300">
-                             <section className="bg-white w-180 h-80 mt-10 border border-slate-700 p-4 ">
+                        <div className="flex flex-col lg:flex-row gap-20 w-300">
+                        <section className="bg-white w-full lg:w-180 h-80 mt-10 border border-slate-700 p-4 ">
                             <div className="section-head flex justify-between h-10">
                                 <span className="title">
                                     <p className="text-slate-500 font-mono">Learning</p>
@@ -381,7 +382,7 @@ export  function Nav(){
                             </div>
                         </section>
 
-                        <section className="h-80 w-100 bg-white p-4 mt-10 border border-slate-500">
+                        <section className="h-80 w-100 bg-white p-4 mt-10 border border-slate-500  ">
                             <div className="section-head flex justify-between h-10 mb-6">
                                 <span className="title">
                                     <p className="text-slate-500 font-mono">Skill Matrix</p>
