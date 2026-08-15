@@ -1,4 +1,4 @@
-import Image from "next/image";
+
 
 
 
@@ -6,26 +6,26 @@ import Image from "next/image";
   function Nav(){
         return(
              <>
-                  <div className="Nav h-20  bg-white pt-3 pb-3 pl-15 pr-15 flex justify-between border-b border-gray-500">
+                  <div className="Nav h-15  bg-white pt-3 pb-3 pl-15 pr-15 flex justify-between border-b border-gray-500">
                   
-                    <div className="flex justify-between  w-100 h-15 mr-4">
+                    <div className="flex justify-between  w-100 h-12 mr-4">
                       <div className="flex-none m-0 w-15  ">
-                        <Image
-                          src="/images/logo.png"
-                          alt="Logo Image"
+                        <img
+                          src="app/images/logo.png"
+                          alt=""
                           width={10}
                           height={10}
                          />
                       </div>
                       <div className=" w-83 ">
-                        <h1 className="text-black font-Arial font-bold text-lg">Employee Learning & Knowledge Hub</h1>
-                        <p className="text-gray-500 text-sm">Administration Portal</p>
+                        <h1 className="text-black text-[18px] font-semibold font-sans text-md">Employee Learning & Knowledge Hub</h1>
+                        
                       </div>
             
                       
                     </div>
             
-                    <div className="flex justify-center items-center w-35 h-10 mr-4 mt-2 text-gray-500 text-sm">
+                    <div className="flex justify-center items-center w-35 h-10 mr-4 mt-0 text-gray-500 text-sm">
                       <svg className=""
                         xmlns="http://www.w3.org/2000/svg"
                         width="22"

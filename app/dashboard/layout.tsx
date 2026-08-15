@@ -1,10 +1,17 @@
+
 "use client"
 
-import { Children, useEffect, useState } from "react";
 // import { useRouter } from "next/navigation";
 import { Side, Nav, Right } from "@/app/dashboard/dash_page";
 
-const Dash = function Dashboard() {
+export default function Knowledge_Center(
+
+    {
+  children,
+}: {
+  children: React.ReactNode;
+})
+ {
 
 //   const router = useRouter();
 //   const [loading, setLoading] = useState(true);
@@ -25,9 +32,14 @@ const Dash = function Dashboard() {
 
   return (
     <>
-      <Right />
+      <div className="main min-h-184 min-w-100 bg-slate-50 overflow-y-hidden flex">
+        <Side />
+
+        <div className="flex-1 w-full overflow-x-hidden">
+          <Nav />
+          {children}
+        </div>
+      </div>
     </>
   );
 };
-
-export default Dash;

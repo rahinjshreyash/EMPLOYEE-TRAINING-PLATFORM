@@ -1,6 +1,9 @@
 import {Progress} from "@/components/ui/progress"
 import {Admin} from "@/components/ui/admin"
 
+import Link from "next/link";
+import { Link2Off } from "lucide-react";
+
 
 export function Side(){
     return(
@@ -29,7 +32,7 @@ export function Side(){
 
 
 
-                    <div className="nav_item h-[97.2px]  rounded-md mb-4.25">
+                    <div className="nav_item h-[137.2px]  rounded-md mb-4.25">
                         <p className="text-slate-900 text-[12px] font-bold ml-2.25 mr-2.25 mb-1.75">ADMINISTRATION</p>
 
                         <div className="hover:bg-indigo-200">
@@ -42,6 +45,13 @@ export function Side(){
                             <button className="btn flex w-[190.8px] h-[40.8] pl-2.25 pr-2.25 pt-1.75 pb-1.75 gap-2">
                                 <span className="border border-indigo-200 h-6.25 w-6.25 text-slate-900 text-[10px] grid justify-center items-center rounded-sm">RP</span>
                                 <span className="text-slate-900 font-semibold text-[12px] pt-0.5 font-sans">Roles and Permissions</span>
+                            </button>
+                        </div>
+
+                        <div className="hover:bg-indigo-200">
+                            <button className="btn flex w-[190.8px] h-[40.8] pl-2.25 pr-2.25 pt-1.75 pb-1.75 gap-2">
+                                <span className="border border-indigo-200 h-6.25 w-6.25 text-slate-900 text-[10px] grid justify-center items-center rounded-sm">OB</span>
+                                <span className="text-slate-900 font-semibold text-[12px] pt-0.5 font-sans">OnBoard</span>
                             </button>
                         </div>
                         
@@ -88,10 +98,10 @@ export function Side(){
                         <p className="text-slate-900 text-[12px] font-bold ml-2.25 mr-2.25 mb-1.75">KNOWLEDGE</p>
 
                         <div className="hover:bg-indigo-200">
-                            <button className="btn flex w-[190.8px] h-[40.8] pl-2.25 pr-2.25 pt-1.75 pb-1.75 gap-2">
+                            <Link href="/dashboard/knowledge-center" className="btn flex w-[190.8px] h-[40.8] pl-2.25 pr-2.25 pt-1.75 pb-1.75 gap-2">
                                 <span className="border border-indigo-200 h-6.25 w-6.25 text-slate-900 text-[10px] grid justify-center items-center rounded-sm">KC</span>
                                 <span className="text-slate-900 font-semibold text-[12px] pt-0.5 font-sans">Knowledge Center</span>
-                            </button>
+                            </Link>
                         </div>
                         <div className="hover:bg-indigo-200">
                             <button className="btn flex w-[190.8px] h-[40.8] pl-2.25 pr-2.25 pt-1.75 pb-1.75 gap-2">
@@ -175,14 +185,14 @@ export function Side(){
 export  function Nav(){
         return(
              <>
-                  <div className="Nav h-20 w-full lg:w-330 bg-white pt-5 pb-3 pl-12 pr-1 flex justify-between ml-0 lg:ml-55 ">
+                  <div className="Nav h-15 w-full lg:w-330 bg-white pt-4 pb-3 pl-12 pr-1 flex justify-between ml-0 lg:ml-55 ">
                   
                     <div className="lg:flex lg:justify-between lg:w-100 h-15 mr-4 w-0">
                       
-                      <div className=" w-253 h-10 border border-amber-950 bg-gray-50 hidden lg:block lg:flex">
+                      <div className=" w-60 h-7 border border-gray-300 bg-gray-100 hidden lg:block lg:flex rounded-3xl">
                         
-                        <input type="text"  placeholder="Search FAQs, documents, test cases, courses and SOPs" className="w-full
-max-w-xltext-[13px] placeholder:p-2 placeholder:text-slate-500 text-black pl-2   lg:block" />
+                        <input type="text"  placeholder="Search FAQs, courses and SOPs" className="w-full
+max-w-xltext-[13px] placeholder:p-1 placeholder:text-[13px] placeholder:text-slate-500 text-black pl-3   lg:block rounded-3xl" />
                         
                       </div>
             
@@ -190,10 +200,10 @@ max-w-xltext-[13px] placeholder:p-2 placeholder:text-slate-500 text-black pl-2  
                     </div>
             
 
-                    <div className="head flex  h-20 flex-row pl-3  gap-2   w-61">
-                        <span className="h-10 w-10 border border-gray-600 rounded-3xl text-slate-900 pt-3 text-[11px] text-center font-bold " >AD</span>
+                    <div className="head flex  h-15 flex-row pl-3  gap-2   w-61">
+                        <span className="h-8 w-8 border border-gray-600 rounded-3xl text-slate-900 pt-1.5 text-[12px] text-center font-bold " >AD</span>
                     <div>
-                        <div className="text-[13px] text-slate-900 font-sans font-bold m-0 p-0">Admin User</div>
+                        <div className="text-[12px] text-slate-900 font-sans font-bold m-0 p-0">Admin User</div>
                         <div className=" font-sans text-[11px] text-slate-500">Content and Learning Admin</div>
                     </div>
 
@@ -206,7 +216,8 @@ max-w-xltext-[13px] placeholder:p-2 placeholder:text-slate-500 text-black pl-2  
         );
     }
 
-    export function Right(){
+    export function Right( 
+    ){
         return(
             <>
                <div className="w-330 min-h-screen h-auto  bg-indigo-100 flex overflow-x-hidden ml-0 lg:ml-55 ">
@@ -234,7 +245,7 @@ max-w-xltext-[13px] placeholder:p-2 placeholder:text-slate-500 text-black pl-2  
                         <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 h-auto justify-between w-full max-w-7xl:w-full mx-auto px-4 text-white lg:h-auto">
                             <div className="bg-white w-70 h-45 border border-gray-400 pl-4 pt-2 rounded-md">
                                 <div className="flex w-60 p-1 h-10 justify-between">
-                                    <span className="bg-slate-300 rounded-md  w-8 h-8 md:w-10 md:h-10 text-slate-900 pl-2 pt-1">TP</span>
+                                    <span className="bg-slate-300 rounded-md w-10 h-8 lg:w-10 lg:h-8 text-slate-900 pl-2 pt-1">TP</span>
                                     <svg
                                         xmlns="http://www.w3.org/2000/svg"
                                         width="24"

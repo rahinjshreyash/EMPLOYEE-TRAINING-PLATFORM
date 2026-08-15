@@ -8,10 +8,12 @@ import { useRouter } from "next/navigation";
 
 export function Signup(
     {
-  goLogin,
+  goLogin, 
 }: {
   goLogin: () => void;
-}
+
+  
+} 
 ){
     
   const [name, setName] = useState("");
@@ -24,7 +26,7 @@ export function Signup(
     e.preventDefault();
     setError("");
 
-    const res = await fetch("http://localhost:3001/login", {
+    const res = await fetch("http://localhost:3001/signup", {
       method: "POST",
       credentials: "include",
       headers: { "Content-Type": "application/json" },
@@ -43,17 +45,15 @@ export function Signup(
 
     return(
         <><div className="w-200 h-164 bg-white flex justify-center items-center">
-                    <div className="signup h-140 w-110 border border-black rounded-xl p-10 shadow-sm shadow-gray-800">
-                        <div className="admin h-8 w-28 border-yellow-700 border rounded-3xl  bg-yellow-200 text-yellow-800 text-[12px] font-bold p-2 font-sans mb-5">
-                            ADMIN ACCESS
-                        </div>
+                    <div className="signup h-130 w-110 border border-black rounded-xl p-10 shadow-sm shadow-gray-800">
+                        
                         <div className="mb-3">
                             <h1 className="text-black text-3xl font-bold">Welcome</h1>
                             <p className="text-gray-500">Sign up with your authorized organization account.</p>
                         </div>
 
                         <div>
-                            <form action="handleSubmit" >
+                            <form action="dashboard" >
                                 <p className="text-black font-bold pb-2 text-sm">Full Name</p>
                                 <input type="text" placeholder="Enter name" className="border border-gray-500 h-10 w-90 rounded-lg text-black placeholder:text-gray-500 pl-2 mb-3 placeholder:text-[16px] "value={name} onChange={(e)=>setName(e.target.value)} />
 
@@ -65,7 +65,7 @@ export function Signup(
                                 <input type="password" placeholder="Enter your password" value={password} onChange={(e)=>setPassword(e.target.value)} className="border border-gray-500 h-10 w-90 rounded-lg text-black placeholder:text-gray-500 pl-2 mb-3 placeholder:text-[16px]"  />
                                 
 
-                                <button type="submit" onSubmit={handleSubmit} className="mt-5 mb-5 border border-black w-90 h-12 rounded-lg bg-indigo-900 font-bold text-white">Sign up</button>
+                                <button type="submit" onSubmit={handleSubmit} className="mt-5 mb-5 border border-black w-90 h-12 rounded-lg bg-indigo-800 font-bold text-white cursor-pointer">Sign up</button>
                             </form>
 
                             <div className="w-90 border-b border-gray-400 mb-5"></div>
