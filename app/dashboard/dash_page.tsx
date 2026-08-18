@@ -8,7 +8,7 @@ import { Link2Off } from "lucide-react";
 export function Side(){
     return(
         <>
-            <div className="sidebar min-h-screen h-auto lg:max-h-181 lg:w-55 hidden lg:block bg-indigo-50 overflow-y-scroll lg:overflow-x-hidden  fixed">
+            <div className="sidebar min-h-screen h-auto lg:max-h-181 lg:w-55 hidden lg:block bg-indigo-50 overflow-y-scroll lg:overflow-x-hidden ">
             <div className="head flex  h-20 flex-row pl-5 pt-5 gap-2 border-b border-b-indigo-200 lg:w-40">
                     <img src="s" alt="" className="h-10 w-10 border border-white rounded-md" />
                     <div>
@@ -185,11 +185,11 @@ export function Side(){
 export  function Nav(){
         return(
              <>
-                  <div className="Nav h-15 w-full lg:w-330 bg-white pt-4 pb-3 pl-12 pr-1 flex justify-between ml-0 lg:ml-55 ">
+                  <div className="Nav h-15 w-full lg:w-330 bg-white pt-4 pb-3 pl-12 pr-1 flex justify-between ml-0  ">
                   
                     <div className="lg:flex lg:justify-between lg:w-100 h-15 mr-4 w-0">
                       
-                      <div className=" w-60 h-7 border border-gray-300 bg-gray-100 hidden lg:block lg:flex rounded-3xl">
+                      <div className=" w-60 h-7 border border-gray-300 bg-gray-100 hidden  lg:flex rounded-3xl">
                         
                         <input type="text"  placeholder="Search FAQs, courses and SOPs" className="w-full
 max-w-xltext-[13px] placeholder:p-1 placeholder:text-[13px] placeholder:text-slate-500 text-black pl-3   lg:block rounded-3xl" />
@@ -220,7 +220,7 @@ max-w-xltext-[13px] placeholder:p-1 placeholder:text-[13px] placeholder:text-sla
     ){
         return(
             <>
-               <div className="w-330 min-h-screen h-auto  bg-indigo-100 flex overflow-x-hidden ml-0 lg:ml-55 ">
+               <div className="w-330 min-h-screen h-auto  bg-indigo-100 flex overflow-x-hidden ml-0  ">
                     <div className="min-h-screen h-auto w-full mt-5 px-4 md:px-8 lg:px-10 ">
                         <p className=" pb-3 font-mono text-slate-900 font-semibold text-sm">ADMIN / DASHBOARD</p>
                         <h1 className=" pb-2 text-2xl md:text-3xl lg:text-4xl font-sans font-bold text-slate-900  flex">Admin Dashboard

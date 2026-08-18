@@ -37,7 +37,9 @@ export default function Knowledge_Center(
 
         <div className="flex-1 w-full overflow-x-hidden">
           <Nav />
-          {children}
+
+          <main className="min-w-0 flex-1 bg-white">{children}</main>
+          
         </div>
       </div>
     </>
